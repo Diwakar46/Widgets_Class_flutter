@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'widgets/text_form_feild.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+MyApp({super.key});
+
 @override
   State<MyApp> createState() => _MyApp();
 }
@@ -38,13 +40,18 @@ String? _ValidatePhone(String? value) {
 }
 
 class _MyApp extends State<MyApp> {
+  final GlobalKey<State> _formKey = GlobalKey<State>();
   Widget build(BuildContext context) {
     return Material(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
+          key: _formKey,
             child: Column(
           children: [
+         Custom_Form_Feild(),
+
+
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               decoration: _InputDeco._decoration,
