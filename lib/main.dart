@@ -3,7 +3,7 @@ import 'package:demo/widgets/text_form_feild.dart';
 import 'package:flutter/material.dart';
 import 'widgets/app_bar.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(const MaterialApp(
       home: MyApp(),
       debugShowCheckedModeBanner: false,
     ));
@@ -16,15 +16,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyApp extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        trailing_icon: Icons.home,
         appbar_bg: Colors.black,
-        my_title: Text('Title'),
-        my_icon: Icon(Icons.menu),
+        my_title: const Text('Title'),
+        leading_icon: const Icon(Icons.menu),
         my_elevation: 8.0,
       ),
-      body: Container(
+      body: SizedBox(
         height: 500,
         width: 380,
         child: Padding(
@@ -34,7 +36,8 @@ class _MyApp extends State<MyApp> {
             right: 10,
           ),
           child: Column(
-            children: [
+            children: const [
+              Image( width: 210,height: 90,image: AssetImage('images/2024.jpg')),
               SizedBox(
                 height: 10,
               ),
@@ -46,7 +49,7 @@ class _MyApp extends State<MyApp> {
                 hint_text: 'Enter User Name',
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               Custom_Form_Feild(
                 obscureText: true,
